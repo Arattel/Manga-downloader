@@ -6,6 +6,7 @@ import os
 def download_image_by_link(image_link, path):
     """
     (str, str) -> None
+    Downloads an image by link
     """
     url = image_link
     r = requests.get(url, allow_redirects=True)
@@ -14,6 +15,10 @@ def download_image_by_link(image_link, path):
 
 
 def chapters(link):
+    """
+    (str) -> (dict)
+    Finds name and  chapter links by link of main page
+    """
     site = requests.get(link)
     site = site.text
     site = BeautifulSoup(site, 'html.parser')
@@ -28,6 +33,10 @@ def chapters(link):
 
 
 def download_all_pages(html, directory):
+    """
+    (str, str) -> None
+    downloads all pages by link and directory name
+    """
     html = requests.get(html).text
     site = BeautifulSoup(html, 'html.parser')
     name = site.find_all('div', class_ = 'info-top-chapter')
@@ -45,6 +54,10 @@ def download_all_pages(html, directory):
 
 
 def main(link):
+    """
+    (str) -> None
+    Downloads the whole manga by given link into directory with name
+    """
     data = chapters(link)
     chapters_list = data['chapters']
     name = data['name']
