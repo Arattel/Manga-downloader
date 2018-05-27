@@ -9,7 +9,7 @@ pip install bs4
 pip install requests
 ```
 1) Clone this repo
-2) Enter link as argument of a function main
+2) Enter link as an argument of a function main
 ## Built With
 * [bs4](https://www.crummy.com/software/BeautifulSoup/bs4/doc/#) - Module for html parsing
 * [requests](http://docs.python-requests.org/en/master/) - For web-requests 
